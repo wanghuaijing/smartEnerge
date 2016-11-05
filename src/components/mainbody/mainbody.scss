@@ -1,0 +1,75 @@
+/**
+ * 创建于：2016-5-12
+ * 创建人：杨骐彰
+ * 说明： 主页面内容容器样式
+ */
+@import 'variables';
+
+$middle-bar-width: 250px;
+.sem-main-body {
+  position: absolute;
+  top: $navbar-height;
+  left: $sidebar-width;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+
+  .sem-middle-bar {
+    width: $middle-bar-width;
+    background: #fff;
+    top: $navbar-height;
+    bottom: 0;
+    position: fixed;
+    padding: 7px;
+    z-index: 1;
+    box-sizing: border-box;
+    left: $sidebar-width;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  > div.sem-has-middle-bar {
+    margin-left: $middle-bar-width;
+  }
+
+  .sem-main-content {
+    padding: 30px 15px 15px 15px;
+  }
+}
+
+//中间区域为设备地址列表时的样式
+.sem-middle-bar.device-address-list {
+  padding-top: 30px;
+  %checkbox {
+    position: absolute;
+    top: 50%;
+    margin-top: -$checkbox-size/2;
+    right: 12px;
+  }
+
+  //搜索条件间距
+  .search-condition-row {
+    margin-bottom: 10px;
+  }
+
+  //面板头部的checkbox
+  .sem-panel {
+    .sem-panel-header {
+      position: relative;
+      .sem-checkbox {
+        @extend %checkbox;
+      }
+    }
+  }
+  //列表
+  .sem-list {
+    a {
+      padding: 0 40px 0 19px;
+      position: relative;
+      //checkbox右侧靠齐
+      .sem-checkbox {
+        @extend %checkbox;
+      }
+    }
+  }
+}

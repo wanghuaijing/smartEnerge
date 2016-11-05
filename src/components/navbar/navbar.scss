@@ -1,0 +1,80 @@
+/**
+ * 创建于：2016-5-11
+ * 创建人：杨骐彰
+ * 说明： 主页面页面顶部样式
+ */
+@import 'variables';
+
+//顶部导航栏
+.sem-navbar {
+  height: $navbar-height;
+  background-color: $color-primary;
+  position: relative;
+  z-index: 2;
+
+  .brand {
+    height: $navbar-height;
+    line-height: $navbar-height;
+    float: left;
+    padding-left: 60px;
+    .name{
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+
+  //右侧导航条
+  ul.nav {
+    float: right;
+    height: $navbar-height;
+    list-style: none;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    li {
+      height: 100%;
+      width: 135px;
+      float: left;
+      font-size: 14px;
+      line-height: $navbar-height;
+      -webkit-transition: all .3s ease;
+      transition: all .3s ease;
+      a{
+        display: block;
+        height: 100%;
+      }
+      img.icon {
+        height: 16px;
+        width: 16px;
+        margin-right: 10px;
+        vertical-align: middle;
+        margin-top: -4px;
+      }
+
+      &:hover{
+        background-color: #75d5ff;
+      }
+    }
+
+    //分割线
+    li.split {
+      width: 4px;
+      background: url(./dividing_line_v.png);
+      background-size: 4px 100%;
+    }
+
+    //用户li样式
+    li.user {
+      img.icon {
+        margin-left: 35px;
+      }
+    }
+
+    //退出li样式
+    li.logout {
+      img.icon {
+        margin-left: 35px;
+      }
+    }
+  }
+}

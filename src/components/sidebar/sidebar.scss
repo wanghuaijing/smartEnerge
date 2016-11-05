@@ -1,0 +1,144 @@
+/**
+ * 创建于：2016-5-11
+ * 创建人：杨骐彰
+ * 说明： 主页面侧边菜单栏样式
+ */
+@import 'variables';
+
+//固定定位
+.sem-sidebar {
+  $bg-color: #33363f;
+  position: fixed;
+  width: $sidebar-width;
+  top: $navbar-height;
+  left: 0;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #33363f;
+  //顶部为2，要在顶部下面z-index
+  z-index: 1;
+  overflow: hidden;
+  //可上下滑动
+  overflow-y: auto;
+}
+
+//菜单块
+.sem-menu-blocks {
+  $font-color: #939393;
+  margin-top: 30px;
+  .menu-block {
+    padding-left: 15px;
+    margin-bottom: 20px;
+    &:not(:last-of-type) {
+      background-image: url(./dividing_line_h.png);
+    }
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    //块标题
+    .menu-title {
+      &.active {
+        color: #fff;
+      }
+      font-size: 16px;
+      color: $font-color;
+      margin-bottom: 16px;
+
+      //菜单标题图
+      .menu-icon {
+        height: 30px;
+        width: 30px;
+        background-size: 30px 30px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 12px;
+        background-image: url(./efficiency_icon.png);
+
+        &.efficiency {
+          background-image: url(./efficiency_icon.png);
+        }
+        &.device {
+          background-image: url(./device_icon.png);
+        }
+        &.system {
+          background-image: url(./system_icon.png);
+        }
+      }
+    }
+
+    //菜单列表
+    .menu-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      padding-left: 15px;
+      li {
+        $first-top: 7px;
+        a {
+          position: relative;
+          display: block;
+          color: $font-color;
+          font-size: 14px;
+          line-height: 16px;
+          padding-bottom: 24px;
+          padding-left: 30px;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+
+          &:hover {
+            color:#ccc;
+          }
+
+          &.active {
+            color: #fff;
+          }
+
+          //左侧连接
+          &:before, &:after {
+            content: '';
+            position: absolute;
+            background-color: $font-color;
+          }
+
+          //竖着的
+          &:before {
+            width: 2px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+          }
+
+          //横着的
+          &:after {
+            height: 2px;
+            top: $first-top;
+            left: 1px;
+            width: 13px;
+          }
+
+          //激活时
+          &.active:after {
+            height: 8px;
+            width: 8px;
+            border-radius: 50%;
+            background-color: $color-primary;
+            background-clip: padding-box;
+            border: solid 10px #33363f;
+            top: -7px;
+            left: -(8px / 2 + 10px - 1px);
+          }
+        }
+
+        &:first-child a:before {
+          top: $first-top;
+        }
+
+        &:last-child a:before {
+          bottom: 24px + $first-top;
+        }
+      }
+    }
+  }
+}
